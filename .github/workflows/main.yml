@@ -13,14 +13,17 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+          
       - name: add remote
         env: 
           HF: ${{ secrets.HG }}
-        run:  git remote add space https://ashandilgith:HG@huggingface.co/spaces/ashandilgith/demo2
+        run:  git remote add space https://huggingface.co/spaces/ashandilgith/demo2
+        
       - name: push to hub
         env:
           HF: ${{ secrets.HG }}
-        run: git push --force git remote add space https://ashandilgith:HG@huggingface.co/spaces/ashandilgith/demo2 main
+        run: git push --force space main
 
 
           
